@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-<title>Formulario</title> <!-- Aquí va el título de la página -->
+<!-- <title>Formulario</title> Aquí va el título de la página -->
 
 </head>
 
@@ -14,6 +14,11 @@
 $Nombre = $_POST['Nombre'];
 $Email = $_POST['Email'];
 $Mensaje = $_POST['Mensaje'];
+$archivo = $_FILES['adjunto'];
+
+$Nombre = $_GET['Nombre'];
+$Email = $_GET['Email'];
+$Mensaje = $_GET['Mensaje'];
 $archivo = $_FILES['adjunto'];
 
 
@@ -50,7 +55,7 @@ $archivo = $_FILES['adjunto'];
     $mail->Password = "tucontraseña"; // Contraseña
     */
     if ($mail->Send())
-    echo "<script>alert('Formulario enviado exitosamente, le responderemos lo más pronto posible.');location.href ='javascript:history.back()';</script>";
+    echo " <script>alert('Formulario enviado exitosamente, le responderemos lo más pronto posible.');location.href ='javascript:history.back()';</script> ";
     else
     echo "<script>alert('Error al enviar el formulario');location.href ='javascript:history.back()';</script>";
 
