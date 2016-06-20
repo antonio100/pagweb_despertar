@@ -11,10 +11,10 @@
 <body>
 <?php
 
-$Nombre = $_POST['Nombre'];
+/*$Nombre = $_POST['Nombre'];
 $Email = $_POST['Email'];
 $Mensaje = $_POST['Mensaje'];
-$archivo = $_FILES['adjunto'];
+$archivo = $_FILES['adjunto'];*/
 
 $Nombre = $_GET['Nombre'];
 $Email = $_GET['Email'];
@@ -41,7 +41,7 @@ $archivo = $_FILES['adjunto'];
     $mail->Body     =  "Nombre: $Nombre \n<br />".    
     "Email: $Email \n<br />".    
     "Mensaje: $Mensaje \n<br />";
-    $mail->AddAttachment($archivo['tmp_name'], $archivo['name']);
+     $mail->AddAttachment($archivo['tmp_name'], $archivo['name']);
     
     
     
