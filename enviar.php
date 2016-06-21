@@ -4,24 +4,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-<!-- <title>Formulario</title> Aquí va el título de la página -->
+<title>Formulario</title> <!-- Aquí va el título de la página -->
 
 </head>
 
 <body>
 <?php
 
-/*$Nombre = $_POST['Nombre'];
+$Nombre = $_POST['Nombre'];
 $Email = $_POST['Email'];
 $Mensaje = $_POST['Mensaje'];
-$archivo = $_FILES['adjunto'];*/
-
-$Nombre = $_GET['Nombre'];
-$Email = $_GET['Email'];
-$Mensaje = $_GET['Mensaje'];
 $archivo = $_FILES['adjunto'];
 
+if ($Nombre=='' || $Email=='' || $Mensaje==''){
 
+echo "<script>alert('Los campos marcados con * son obligatorios');location.href ='javascript:history.back()';</script>";
+
+}else{
 
 
     require("archivosformulario/class.phpmailer.php");
@@ -41,7 +40,7 @@ $archivo = $_FILES['adjunto'];
     $mail->Body     =  "Nombre: $Nombre \n<br />".    
     "Email: $Email \n<br />".    
     "Mensaje: $Mensaje \n<br />";
-     $mail->AddAttachment($archivo['tmp_name'], $archivo['name']);
+    $mail->AddAttachment($archivo['tmp_name'], $archivo['name']);
     
     
     
@@ -55,11 +54,11 @@ $archivo = $_FILES['adjunto'];
     $mail->Password = "tucontraseña"; // Contraseña
     */
     if ($mail->Send())
-    echo " <script>alert('Formulario enviado exitosamente, le responderemos lo más pronto posible.');location.href ='index.html';</script> ";
+    echo "<script>alert('Formulario enviado exitosamente, le responderemos lo más pronto posible.');location.href ='javascript:history.back()';</script>";
     else
-    echo "<script>alert('Error al enviar el formulario');location.href ='index.html';</script>";
+    echo "<script>alert('Error al enviar el formulario');location.href ='javascript:history.back()';</script>";
 
-
+}
 
 ?>
 </body>
